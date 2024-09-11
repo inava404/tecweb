@@ -108,6 +108,7 @@
             echo '<li>$z: ' . print_r($z, true) . '</li>';
         ?>
 
+    <br>
     <hr>
     <h2>Ejercicio 4</h2>
     <p>Lee y muestra los valores de las variables del ejercicio anterior, pero ahora con la ayuda de
@@ -137,6 +138,21 @@
         unset($a, $z, $b, $c);
     ?>
 
+    <br>
+    <hr>
+        <h2>Ejercicio 5</h2>
+        <p>Dar el valor de las variables $a, $b, $c al final del siguiente script:</p>
+        <p>$a = “7 personas”;</p>
+        <p>$b = (integer) $a;</p>
+        <p>$a = “9E3”;</p>
+        <p>$c = (double) $a;</p>
+
+        <?php
+            $a = "7 personas";
+            $b = (integer) $a;
+            $a = "9E3";
+            $c = (double) $a;
+        ?>
 
 </body>
 </html>
