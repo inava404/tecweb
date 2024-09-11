@@ -71,8 +71,41 @@
         <?php
             echo '<li>Lo que sucedió ahora fue que sobreescribimos variables, al inicio lo que hacemos es asignar el valor "Manejador SQL" a la variable $a, y a la variable $b el de "MySQL"<br>
             en luego a la variable $a cambia a "PHP server" y la variable $b se convierte en una referencia a $a,  significa que ambos, $b y $a, lo que significa que apuntan al mismo<br> 
-            valor memoria. Si el valor de $a cambia en el futuro, también lo hará el valor de $b, ya que ambos están referenciando el mismo lugar en memoria.';
+            valor memoria. Si el valor de $a cambia en el futuro, también lo hará el valor de $b, ya que ambos están referenciando el mismo lugar en memoria.
+            <br><br>';
+            unset($a, $b, $c);
         ?>
 
+    <hr>
+    <h2>Ejercicio 3</h2>
+        <p>Muestra el contenido de cada variable inmediatamente después de cada asignación,
+            verificar la evolución del tipo de estas variables (imprime todos los componentes de los
+            arreglo):</p>
+        <p>$a = “PHP5”;</p>
+        <p>$z[] = &$a;</p>
+        <p>$b = “5a version de PHP”;</p>
+        <p>$c = $b*10;</p>
+        <p>$a .= $b;</p>
+        <p>$b *= $c;</p>
+        <p>$z[0] = “MySQL”;</p>
+        <br>
+        <p><b>Ejercicio realizado:</b></p>
+        <?php
+            $a = "PHP5";
+            echo '<li>$a: '.$a.'</li>';
+            $z[] = &$a;
+            echo '<li>$z: ' . print_r($z, true) . '</li>';
+            $b = "5a version de PHP";
+            echo '<li>$b: '.$b.'</li>';
+            $c = intval($b)*10;
+            echo '<li>$c: '.$c.'</li>';
+            $a .= $b;
+            echo '<li>$a: '.$a.'</li>';
+            settype($b, 'int');
+            $b *= $c;
+            echo '<li>$b: '.$b.'</li>';
+            $z[0] = "MySQL";
+            echo '<li>$z: ' . print_r($z, true) . '</li>';
+        ?>
 </body>
 </html>
