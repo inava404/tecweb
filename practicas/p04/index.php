@@ -152,6 +152,57 @@
             $b = (integer) $a;
             $a = "9E3";
             $c = (double) $a;
+
+            $a = "7 personas";
+            echo "<br><br><li>$a </li><br>";
+            $b = (integer) $a;
+            echo "<li>$b </li><br>";
+            $a = "9E";
+            echo "<li>$a </li><br>";
+            $c = (double) $a;
+            echo "<li>$c </li><br>";
+            unset($a, $b, $c);
+        ?>
+
+    <br>
+    <hr>
+        <h2>Ejercicio 6</h2>
+        <p>Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
+        usando la función var_dump(<datos>).</p>
+        <p>Después investiga una función de PHP que permita transformar el valor booleano de $c y $e
+        en uno que se pueda mostrar con un echo:</p>
+        <p>$a = “0”;</p>
+        <p>$b = “TRUE”;</p>
+        <p>$c = FALSE;</p>
+        <p>$d = ($a OR $b);</p>
+        <p>$e = ($a AND $c);</p>
+        <p>$f = ($a XOR $b);</p>
+
+        <?php
+            $a = "0";
+            $b = "TRUE";
+            $c = FALSE;
+            $d = ($a OR $b); 
+            $e = ($a AND $c); 
+            $f = ($a XOR $b); 
+
+            echo "<br><br><li>";
+            var_dump($a);
+            echo "</li><br><li>";
+            var_dump($b);
+            echo "</li><br><li>";
+            var_dump($c);
+            echo "</li><br><li>";
+            var_dump($d);
+            echo "</li><br><li>";
+            var_dump($e);
+            echo "</li><br><li>";
+            var_dump($f);
+            echo "</li><br>";
+                
+            echo '<br>Valor de $c y $e transformados:<br><br>';
+            echo '<li>$c: ' . var_export($c, true) . '</li><br>';
+            echo '<li>$e: ' . var_export($e, true) . '</li><br>';
         ?>
 
 </body>
