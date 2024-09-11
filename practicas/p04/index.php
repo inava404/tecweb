@@ -33,29 +33,46 @@
 
 <hr>
 <h2>Ejercicio 2</h2>
-    <p>Determina cuál de las siguientes variables son válidas y explica por qué:</p>
-    <p>$_myvar,  $_7var,  myvar,  $myvar,  $var7,  $_element1, $house*5</p>
+    <p>Proporcionar los valores de $a, $b, $c como sigue:</p>
+    <p>$a = “ManejadorSQL”;</p>
+    <p>$b = 'MySQL’;</p>
+    <p>$c = &$a;</p>
     <?php
-        //AQUI VA MI CÓDIGO PHP
-        $_myvar;
-        $_7var;
-        //myvar;       // Inválida
-        $myvar;
-        $var7;
-        $_element1;
-        //$house*5;     // Invalida
-        
-        echo '<h4>Respuesta:</h4>';   
-    
-        echo '<ul>';
-        echo '<li>$_myvar es válida porque inicia con guión bajo.</li>';
-        echo '<li>$_7var es válida porque inicia con guión bajo.</li>';
-        echo '<li>myvar es inválida porque no tiene el signo de dolar ($).</li>';
-        echo '<li>$myvar es válida porque inicia con una letra.</li>';
-        echo '<li>$var7 es válida porque inicia con una letra.</li>';
-        echo '<li>$_element1 es válida porque inicia con guión bajo.</li>';
-        echo '<li>$house*5 es inválida porque el símbolo * no está permitido.</li>';
-        echo '</ul>';
+        $a = "ManejadorSQL";
+        $b = 'MySQL';
+        $c = &$a;
     ?>
+
+    <br>
+    <p>a. Ahora muestra el contenido de cada variable</p>
+    <?php
+        echo "<li>$a</li><br>";
+        echo "<li>$b</li><br>";
+        echo "<li>$c</li>";
+    ?>
+
+    <br>
+    <p>b. Agrega al código actual las siguientes asignaciones:</p>
+    <p>$a = “PHP server”;</p>
+    <p>$b = &$a;</p>
+    <?php
+        $a = "PHP server";
+        $b = '&$a';
+    ?>
+
+    <br>
+    <p>c. Vuelve a mostrar el contenido de cada uno</p>
+    <?php
+        echo "<li>$a</li><br>";
+        echo "<li>$b</li>";
+    ?>
+
+    <p>d. Describe y muestra en la página obtenida qué ocurrió en el segundo bloque de asignaciones</p>
+        <?php
+            echo '<li>Lo que sucedió ahora fue que sobreescribimos variables, al inicio lo que hacemos es asignar el valor "Manejador SQL" a la variable $a, y a la variable $b el de "MySQL"<br>
+            en luego a la variable $a cambia a "PHP server" y la variable $b se convierte en una referencia a $a,  significa que ambos, $b y $a, lo que significa que apuntan al mismo<br> 
+            valor memoria. Si el valor de $a cambia en el futuro, también lo hará el valor de $b, ya que ambos están referenciando el mismo lugar en memoria.';
+        ?>
+
 </body>
 </html>
