@@ -20,12 +20,12 @@
     <fieldset>
       <legend>Información Personal</legend>
       <ul>
-        <li>Nombre: <input type="text" name="name"></li>
-      <li>Dirección de E-mail: <input type="text" name="email"></li>
-      <li>Número Telefónico: <input type="tel" name="phone"></li>
+        <li>Nombre: <input type="text" name="name" required></li>
+      <li>Dirección de E-mail: <input type="text" name="email" required></li>
+      <li>Número Telefónico: <input type="tel" name="phone" required></li>
       <li> Mis tenis son tan feos porque...<br>
         <textarea name="story" rows="4" cols="60" maxlength="300"
-        placeholder="No más de 300 caracteres de longitud"></textarea></li>
+        placeholder="No más de 300 caracteres de longitud" required></textarea></li>
       </ul>
     </fieldset>
 
@@ -36,10 +36,10 @@
       <fieldset>
       <legend>Color <em>(escoge uno)</em>:</legend>
         <ul>
-          <li><input type="radio" name="color" value="Rojo">Rojo</li>
-          <li><input type="radio" name="color" value="Azul">Azul</li>
-          <li><input type="radio" name="color" value="Negro">Negro</li>
-          <li><input type="radio" name="color" value="Plateado">Plateado</li>
+          <li><input type="radio" name="color" value="Rojo" required>Rojo</li>
+          <li><input type="radio" name="color" value="Azul" required>Azul</li>
+          <li><input type="radio" name="color" value="Negro" required>Negro</li>
+          <li><input type="radio" name="color" value="Plateado" required>Plateado</li>
         </ul>
       </fieldset>
     
