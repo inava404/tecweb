@@ -11,7 +11,7 @@
     ?>
 
     <h2>Ejercicio 1</h2>
-    <p>Escribir programa para comprobar si un número es un múltiplo de 5 y 7</p>
+    <p>Escribir programa para comprobar si un número es un múltiplo de 5 y 7.</p>
     <?php
     if(isset($_GET['numero']))
         {
@@ -21,7 +21,7 @@
 
     <h2>Ejercicio 2</h2>
     <p>Crea un programa para la generación repetitiva de 3 números aleatorios hasta obtener una
-    secuencia compuesta por: impar, par, impar</p>
+    secuencia compuesta por: impar, par, impar.</p>
     <p>Por ejemplo:</p>
     <p>990, 382, 786</p>
     <p>422, 361, 473</p>
@@ -32,6 +32,20 @@
     números generados:</p>
     <?php
         ej02();
+    ?>
+
+    <h2>Ejercicio 3</h2>
+    <p>Utiliza un ciclo while para encontrar el primer número entero obtenido aleatoriamente,
+    pero que además sea múltiplo de un número dado.</p>
+    <ul>
+        <li>Crear una variante de este script utilizando el ciclo do-while.</li>
+        <li>El número dado se debe obtener vía GET.</li>
+    </ul>
+    <?php
+    if(isset($_GET['numero']))
+        {
+            $num = $_GET['numero'];
+        } ej03($num);
     ?>
 
 </body>

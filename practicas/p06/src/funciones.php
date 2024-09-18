@@ -47,4 +47,20 @@
         echo "</table>";
         echo "<p><strong> $total_numeros </strong> numeros obtenidos en <strong> $iteraciones </strong> iteraciones</p>";
     }
+
+    function ej03($num){
+        $num_aleatorio;
+        $encontrado = false;
+        $intentos = 0;
+        
+        do {
+            $num_aleatorio = rand(1, 999);
+            $intentos++;
+            // Verificamos si el número aleatorio es múltiplo del número dado
+            if ($num_aleatorio % $num == 0) {
+                $encontrado = true;
+                echo "<p>Se encontró el múltiplo: <strong>$num_aleatorio</strong> después de $intentos intentos.</p>";
+            }
+        } while (!$encontrado);
+    }
 ?>
