@@ -59,8 +59,24 @@
             // Verificamos si el número aleatorio es múltiplo del número dado
             if ($num_aleatorio % $num == 0) {
                 $encontrado = true;
-                echo "<p>Se encontró el múltiplo: <strong>$num_aleatorio</strong> después de $intentos intentos.</p>";
+                echo "<p>Número dado: <strong>$num</strong> <br> Se encontró el múltiplo: <strong>$num_aleatorio</strong> después de <strong>$intentos</strong> intentos.</p>";
             }
         } while (!$encontrado);
+    }
+
+    function ej04(){
+        $arreglo = array();
+        // Utilizamos un ciclo for para llenar el arreglo
+        for ($i = 97; $i <= 122; $i++) {
+            $arreglo[$i] = chr($i); // chr($i) convierte el código ASCII en el carácter correspondiente
+        }
+        echo "<table border='1' cellpadding='5'>";
+        echo "<tr><th>Código ASCII</th><th>Letra</th></tr>";
+        // Mostrar el arreglo en una tabla usando un ciclo foreach
+        foreach ($arreglo as $key => $value) {
+            echo "<tr><td>$key</td><td>$value</td></tr>";
+        }
+
+        echo "</table>";
     }
 ?>
