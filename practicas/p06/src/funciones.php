@@ -94,4 +94,32 @@
             }
         }
     }
+
+    function mostrarAutoPorMatricula($parque_vehicular, $matricula) {
+        if (isset($parque_vehicular[$matricula])) {
+            echo "<h3>Información del auto con matrícula: $matricula</h3>";
+            echo "<p>Marca: " . $parque_vehicular[$matricula]['Auto']['marca'] . "</p>";
+            echo "<p>Modelo: " . $parque_vehicular[$matricula]['Auto']['modelo'] . "</p>";
+            echo "<p>Tipo: " . $parque_vehicular[$matricula]['Auto']['tipo'] . "</p>";
+            echo "<p>Propietario: " . $parque_vehicular[$matricula]['Propietario']['nombre'] . "</p>";
+            echo "<p>Ciudad: " . $parque_vehicular[$matricula]['Propietario']['ciudad'] . "</p>";
+            echo "<p>Dirección: " . $parque_vehicular[$matricula]['Propietario']['direccion'] . "</p>";
+        } else {
+            echo "<h3>No se encontró el auto con matrícula: $matricula</h3>";
+        }
+    }
+    
+    function mostrarTodosLosAutos($parque_vehicular) {
+        echo "<h2>Todos los autos registrados:</h2>";
+        foreach ($parque_vehicular as $matricula => $info) {
+            echo "<h4>Matrícula: $matricula</h4>";
+            echo "<p>Marca: " . $info['Auto']['marca'] . "</p>";
+            echo "<p>Modelo: " . $info['Auto']['modelo'] . "</p>";
+            echo "<p>Tipo: " . $info['Auto']['tipo'] . "</p>";
+            echo "<p>Propietario: " . $info['Propietario']['nombre'] . "</p>";
+            echo "<p>Ciudad: " . $info['Propietario']['ciudad'] . "</p>";
+            echo "<p>Dirección: " . $info['Propietario']['direccion'] . "</p>";
+            echo "<hr>";
+        }
+    }
 ?>

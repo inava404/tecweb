@@ -169,28 +169,235 @@
         <li>De todos los autos registrados.</li>
     </ul>
 
+    <h2>Consulta de Autos</h2>
     <form action="" method="POST">
-        <label for="edad">Introduce tu edad:</label> 
-        <input type="text" name="edad" id="edad" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required min="1">
-        <br><br>
-        <label for="sexo">Selecciona tu sexo:</label>
-        <select name="sexo" id="sexo" required>
-            <option value="femenino">Femenino</option>
-            <option value="masculino">Masculino</option>
-        </select>
+        <label for="matricula">Ingrese la matrícula del auto:</label>
+        <input type="text" id="matricula" name="matricula">
+        <input type="submit" name="buscar" value="Buscar">
+    </form>
 
-        <button type="submit">Enviar</button>
-
+    <form action="" method="POST">
+        <input type="submit" name="ver_todos" value="Ver Todos los Autos">
     </form>
 
     <?php
-        if(isset($_POST["edad"]) && isset($_POST["sexo"]))
-        {
-            $edad = $_POST['edad'];
-            $sexo = $_POST['sexo'];
-            ej05($edad, $sexo);
-        }
+    $parque_vehicular = [
+        'ABC1234' => [
+            'Auto' => [
+                'marca' => 'HONDA',
+                'modelo' => 2020,
+                'tipo' => 'camioneta'
+            ],
+            'Propietario' => [
+                'nombre' => 'Alfonzo Esparza',
+                'ciudad' => 'Puebla, Pue.',
+                'direccion' => 'C.U., Jardines de San Manuel'
+            ]
+        ],
+        'DEF5678' => [
+            'Auto' => [
+                'marca' => 'MAZDA',
+                'modelo' => 2019,
+                'tipo' => 'sedan'
+            ],
+            'Propietario' => [
+                'nombre' => 'Ma. del Consuelo Molina',
+                'ciudad' => 'Puebla, Pue.',
+                'direccion' => '97 oriente'
+            ]
+        ],
+        'GHI9012' => [
+            'Auto' => [
+                'marca' => 'TOYOTA',
+                'modelo' => 2021,
+                'tipo' => 'hachback'
+            ],
+            'Propietario' => [
+                'nombre' => 'Carlos Pérez',
+                'ciudad' => 'Ciudad de México, CDMX',
+                'direccion' => 'Colonia Roma'
+            ]
+        ],
+        'JKL3456' => [
+            'Auto' => [
+                'marca' => 'NISSAN',
+                'modelo' => 2018,
+                'tipo' => 'sedan'
+            ],
+            'Propietario' => [
+                'nombre' => 'Fernanda García',
+                'ciudad' => 'Guadalajara, Jalisco',
+                'direccion' => 'Av. Chapultepec'
+            ]
+        ],
+        'MNO7890' => [
+            'Auto' => [
+                'marca' => 'FORD',
+                'modelo' => 2022,
+                'tipo' => 'camioneta'
+            ],
+            'Propietario' => [
+                'nombre' => 'Roberto Hernández',
+                'ciudad' => 'Monterrey, NL',
+                'direccion' => 'Centro'
+            ]
+        ],
+       'JKL3456' => [
+            'Auto' => [
+                'marca' => 'Ford',
+                'modelo' => 2017,
+                'tipo' => 'Camioneta'
+            ],
+            'Propietario' => array(
+                'nombre' => 'Luis Martínez',
+                'ciudad' => 'Valencia',
+                'direccion' => 'Calle Colón 15'
+            )
+        ],
+        'MNO7890' => [
+            'Auto' => [
+                'marca' => 'Chevrolet',
+                'modelo' => 2016,
+                'tipo' => 'Sedán'
+            ],
+            'Propietario' => [
+                'nombre' => 'Sara Díaz',
+                'ciudad' => 'Bilbao',
+                'direccion' => 'Avenida San Mamés 100'
+            ]
+        ],
+        'PQR2345' => [
+            'Auto' => [
+                'marca' => 'Renault',
+                'modelo' => 2020,
+                'tipo' => 'Hatchback'
+            ],
+            'Propietario' => [
+                'nombre' => 'Mario García',
+                'ciudad' => 'Zaragoza',
+                'direccion' => 'Calle Coso 50'
+            ]
+        ],
+        'STU6789' => [
+            'Auto' => [
+                'marca' => 'Volkswagen',
+                'modelo' => 2015,
+                'tipo' => 'Sedán'
+            ],
+            'Propietario' => [
+                'nombre' => 'Lucía Fernández',
+                'ciudad' => 'Alicante',
+                'direccion' => 'Plaza Luceros 12'
+            ]
+        ],
+        'VWX1234' => [
+            'Auto' => [
+                'marca' => 'Nissan',
+                'modelo' => 2018,
+                'tipo' => 'Camioneta'
+            ],
+            'Propietario' => [
+                'nombre' => 'Roberto Sánchez',
+                'ciudad' => 'Córdoba',
+                'direccion' => 'Avenida Gran Capitán 85'
+            ]
+        ],
+        'YZA5678' => [
+            'Auto' => [
+                'marca' => 'Peugeot',
+                'modelo' => 2019,
+                'tipo' => 'Hatchback'
+            ],
+            'Propietario' => [
+                'nombre' => 'Inés Gutiérrez',
+                'ciudad' => 'Granada',
+                'direccion'  => 'Calle Reyes Católicos 21'
+            ]
+        ],
+        'BCD9012' => [
+            'Auto' => [
+                'marca' => 'Seat',
+                'modelo' => 2021,
+                'tipo' => 'Sedán'
+            ],
+            'Propietario' => [
+                'nombre' => 'Javier Torres',
+                'ciudad' => 'Valladolid',
+                'direccion' => 'Paseo Zorrilla 70'
+            ]
+        ],
+        'EFG3456' => [
+            'Auto' => [
+                'marca' => 'Fiat',
+                'modelo' => 2017,
+                'tipo' => 'Camioneta'
+            ],
+            'Propietario' => [
+                'nombre' => 'Elena Navarro',
+                'ciudad' => 'Murcia',
+                'direccion' => 'Gran Vía Escultor Salzillo 10'
+            ]
+        ],
+        'HIJ7890' => [
+            'Auto' => [
+                'marca' => 'BMW',
+                'modelo' => 2022,
+                'tipo' => 'Sedán'
+            ],
+            'Propietario' => [
+                'nombre' => 'Carlos Romero',
+                'ciudad' => 'Pamplona',
+                'direccion' => 'Calle Estafeta 5'
+            ]
+        ],
+        'KLM2345' => [
+            'Auto' => [
+                'marca' => 'Audi',
+                'modelo' => 2019,
+                'tipo' => 'Hatchback'
+            ],
+            'Propietario' => [
+                'nombre' => 'María Alonso',
+                'ciudad' => 'Santander',
+                'direccion' => 'Calle Burgos 32'
+            ]
+        ],
+        'XYZ1234' => [
+            'Auto' => [
+                'marca' => 'Kia',
+                'modelo' => 2023,
+                'tipo' => 'SUV'
+            ],
+            'Propietario' => [
+                'nombre' => 'Ana López',
+                'ciudad' => 'Sevilla',
+                'direccion' => 'Avenida de la Constitución 45'
+            ]
+        ],
+        'ABC5678' => [
+            'Auto' => [
+                'marca' => 'Tesla',
+                'modelo' => 2022,
+                'tipo' => 'Eléctrico'
+            ],
+            'Propietario' => [
+                'nombre' => 'David García',
+                'ciudad' => 'Barcelona',
+                'direccion' => 'Paseo de Gracia 100'
+            ]
+        ]
+    ];
+    
+    if (isset($_POST['buscar'])) {
+        $matricula = strtoupper($_POST['matricula']); // Convertir a mayúsculas
+        mostrarAutoPorMatricula($parque_vehicular, $matricula);
+    }
+
+    if (isset($_POST['ver_todos'])) {
+        mostrarTodosLosAutos($parque_vehicular);
+    }
     ?>
+
     
     </fieldset>
 
