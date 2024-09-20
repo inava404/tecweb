@@ -14,7 +14,7 @@
 
     function ej02(){
        
-        $matriz = array(); // Matriz para almacenar las secuencias generadas
+        $matriz = array();
         $iteraciones = 0;
 
         // Bucle para generar secuencias hasta cumplir con la condición impar-par-impar
@@ -30,6 +30,16 @@
             // Comprobamos si cumplen con el formato impar-par-impar
             // Un número es impar si $num % 2 != 0 y par si $num % 2 == 0
         } while (!($num1 % 2 != 0 && $num2 % 2 == 0 && $num3 % 2 != 0));
+
+                //while (!($num1 % 2 != 0 && $num2 % 2 == 0 && $num3 % 2 != 0)) {
+                    //$num1 = rand(1, 999);
+                    //$num2 = rand(1, 999);
+                    //$num3 = rand(1, 999);
+
+                    //$matriz[] = array($num1, $num2, $num3);
+                    //$iteraciones++;
+                //}
+
 
         $total_numeros = $iteraciones * 3;
 
