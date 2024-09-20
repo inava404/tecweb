@@ -70,13 +70,28 @@
         for ($i = 97; $i <= 122; $i++) {
             $arreglo[$i] = chr($i); // chr($i) convierte el código ASCII en el carácter correspondiente
         }
+
+        // Mostrar el arreglo en una tabla usando un ciclo foreach
         echo "<table border='1' cellpadding='5'>";
         echo "<tr><th>Código ASCII</th><th>Letra</th></tr>";
-        // Mostrar el arreglo en una tabla usando un ciclo foreach
+
         foreach ($arreglo as $key => $value) {
             echo "<tr><td>$key</td><td>$value</td></tr>";
         }
 
         echo "</table>";
+    }
+
+    function ej05($sexo, $edad){
+        if(isset($_POST["edad"]) && isset($_POST["sexo"])){
+            $edad = $_POST['edad'];
+            $sexo = $_POST['sexo'];
+
+            if ($sexo == "femenino" && $edad >= 18 && $edad <= 35) {
+                echo "<p>Bienvenida, usted está en el rango de edad permitido.</p>";
+            } else {
+                echo "<p>Lo siento, no cumple con los requisitos de edad o sexo.</p>";
+            }
+        }
     }
 ?>
