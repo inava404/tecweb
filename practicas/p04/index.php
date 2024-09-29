@@ -5,9 +5,10 @@
     <title>Práctica 3</title>
 </head>
 <body>
+    
     <h2>Ejercicio 1</h2>
     <p>Determina cuál de las siguientes variables son válidas y explica por qué:</p>
-    <p>$_myvar,  $_7var,  myvar,  $myvar,  $var7,  $_element1, $house*5</p>
+    <p>$_myvar,  $_7var,  myvar,  $myvar,  $var7,  $_element1, $house*5</p> 
     <?php
         //AQUI VA MI CÓDIGO PHP
         $_myvar;
@@ -31,19 +32,18 @@
         echo '</ul>';
     ?>
 
-<hr>
+<hr/>
 <h2>Ejercicio 2</h2>
     <p>Proporcionar los valores de $a, $b, $c como sigue:</p>
     <p>$a = “ManejadorSQL”;</p>
     <p>$b = 'MySQL’;</p>
-    <p>$c = &$a;</p>
+    <p>$c = &amp;$a;</p>
     <?php
         $a = "ManejadorSQL";
         $b = 'MySQL';
         $c = &$a;
     ?>
 
-    <br>
     <p>a. Ahora muestra el contenido de cada variable</p>
     <?php
         echo "<li>$a</li><br>";
@@ -51,16 +51,14 @@
         echo "<li>$c</li>";
     ?>
 
-    <br>
     <p>b. Agrega al código actual las siguientes asignaciones:</p>
     <p>$a = “PHP server”;</p>
-    <p>$b = &$a;</p>
+    <p>$b = &amp;$a;</p>
     <?php
         $a = "PHP server";
         $b = '&$a';
     ?>
 
-    <br>
     <p>c. Vuelve a mostrar el contenido de cada uno</p>
     <?php
         echo "<li>$a</li><br>";
@@ -76,19 +74,18 @@
             unset($a, $b, $c);
         ?>
 
-    <hr>
+    <hr/>
     <h2>Ejercicio 3</h2>
         <p>Muestra el contenido de cada variable inmediatamente después de cada asignación,
             verificar la evolución del tipo de estas variables (imprime todos los componentes de los
             arreglo):</p>
         <p>$a = “PHP5”;</p>
-        <p>$z[] = &$a;</p>
+        <p>$z[] = &amp;$a;</p>
         <p>$b = “5a version de PHP”;</p>
         <p>$c = $b*10;</p>
         <p>$a .= $b;</p>
         <p>$b *= $c;</p>
         <p>$z[0] = “MySQL”;</p>
-        <br>
         <p><b>Ejercicio realizado:</b></p>
         <?php
             $a = "PHP5 ";
@@ -108,8 +105,7 @@
             echo '<li>$z: ' . print_r($z, true) . '</li>';
         ?>
 
-    <br>
-    <hr>
+    <hr/>
     <h2>Ejercicio 4</h2>
     <p>Lee y muestra los valores de las variables del ejercicio anterior, pero ahora con la ayuda de
     la matriz $GLOBALS o del modificador global de PHP.</p>
@@ -138,8 +134,7 @@
         unset($a, $z, $b, $c);
     ?>
 
-    <br>
-    <hr>
+    <hr/>
         <h2>Ejercicio 5</h2>
         <p>Dar el valor de las variables $a, $b, $c al final del siguiente script:</p>
         <p>$a = “7 personas”;</p>
@@ -164,11 +159,12 @@
             unset($a, $b, $c);
         ?>
 
-    <br>
-    <hr>
+    <hr/>
         <h2>Ejercicio 6</h2>
-        <p>Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
-        usando la función var_dump(<datos>).</p>
+        <?php
+        echo '<p>Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
+        usando la función var_dump(<datos>).</p>'
+        ?>
         <p>Después investiga una función de PHP que permita transformar el valor booleano de $c y $e
         en uno que se pueda mostrar con un echo:</p>
         <p>$a = “0”;</p>
@@ -204,19 +200,22 @@
             echo '<li>$c: ' . var_export($c, true) . '</li><br>';
             echo '<li>$e: ' . var_export($e, true) . '</li><br>';
         ?>
-    <br>
-    <hr>
+
+    <hr/>
         <h2>Ejercicio 7</h2>
         <p>Usando la variable predefinida $_SERVER, determina lo siguiente:</p>
         <p>a. La versión de Apache y PHP,</p>
         <p>b. El nombre del sistema operativo (servidor),</p>
         <p>c. El idioma del navegador (cliente).</p>
-        <br>
 
         <?php
             echo '<li><b>Versión de Apache y PHP:</b> ' . $_SERVER['SERVER_SOFTWARE'] . '</li><br>';
             echo '<li><b>Nombre del sistema operativo:</b> ' . PHP_OS . '</li><br>';
             echo '<li><b>Idioma del navegador:</b> ' . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . '</li><br>';
         ?>
+    <p>
+        <a href="https://validator.w3.org/markup/check?uri=referer"><img
+        src="https://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" height="31" width="88" /></a>
+    </p>
 </body>
 </html>
