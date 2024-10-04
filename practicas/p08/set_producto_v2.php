@@ -45,7 +45,9 @@
 				
 			} else{ /** En caso contrario, se muestra un mensaje de que los datos ya existen en la base de datos */
 				/** Crear una tabla que no devuelve un conjunto de resultados */
-				$sql = "INSERT INTO productos VALUES (null, '{$nombre}', '{$marca}', '{$modelo}', {$precio}, '{$detalles}', {$unidades}, '{$imagen}')";
+				/**$sql = "INSERT INTO productos VALUES (null, '{$nombre}', '{$marca}', '{$modelo}', {$precio}, '{$detalles}', {$unidades}, '{$imagen}', 0)";**/
+				$sql = "INSERT INTO productos(nombre, marca, modelo, precio, detalles, unidades, imagen) 
+				VALUES ('{$nombre}', '{$marca}', '{$modelo}', {$precio}, '{$detalles}', {$unidades}, '{$imagen}')" ;
 				if ( $link->query($sql) ) 
 				{
 					echo'<h1>MUCHAS GRACIAS</h1>';
