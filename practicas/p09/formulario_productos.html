@@ -1,0 +1,61 @@
+<!DOCTYPE html >
+<html>
+
+  <head>
+    <meta charset="utf-8" >
+    <title>Registro de productos</title>
+    <style type="text/css">
+      body{
+        background-color: #c2d8d9;
+      }
+      ol, ul { 
+      list-style-type: none;
+      }
+      h1{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      }
+      p{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+      }
+      h2{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      legend{
+        font-size: large;
+      }
+      input{
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>REGISTRO PARA NUEVOS PRODUCTOS</h1>
+
+    <p>Formulario para añadir nuevos productos al <em>market</em>.</p>
+
+    <form id="formularioTProductos" action="http://localhost/tecweb/practicas/p08/set_producto_v2.php" method="post">
+
+    <h2>Información de productos</h2>
+      <fieldset>
+        <legend>Ingresa datos:</legend>
+
+        <ul>
+          <li><label for="form-name">Nombre:</label> <input type="text" name="nombre" id="form-nombre" placeholder="..." required></li>
+          <li><label for="form-marca">Marca:</label> <input type="text" name="marca" id="form-marca" placeholder="..." required></li>
+          <li><label for="form-modelo">Modelo:</label> <input type="text" name="modelo" id="form-modelo" placeholder="..." required></li>
+          <li><label for="form-precio">Precio:</label> <input type="double" name="precio" id="form-precio" placeholder="$00.00" required></li>
+          <li><label for="form-detalles">Detalles: </label><br><textarea name="detalles" rows="4" cols="60" id="form-detalles" placeholder="No más de 300 caracteres de longitud" required></textarea></li>
+          <li><label for="form-unidades">Unidades:</label> <input type="number" name="unidades" id="form-unidades" placeholder="..." required></li>
+          <li><label for="form-imagen">Imagen:</label> <input type="file" name="imagen" id="form-imagen" accept="image/*"></li>
+        </ul>
+      </fieldset>
+
+      <p>
+        <input type="submit" value="Subir producto">
+        <input type="reset">
+      </p>
+
+    </form>
+  </body>
+</html>
