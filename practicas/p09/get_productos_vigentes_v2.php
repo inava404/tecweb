@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+
 <script>
     function show(event) {
         var row = event.target.parentNode.parentNode;
 
+		var id = row.cells[0].innerHTML;
         var nombre = row.cells[1].innerHTML;
         var marca = row.cells[2].innerHTML;
         var modelo = row.cells[3].innerHTML;
@@ -13,161 +15,173 @@
         var detalles = row.cells[6].innerHTML;
         var imagen = row.cells[7].querySelector('img').src;
 
-        alert("Nombre: " + nombre + "\nMarca: " + marca + "\nModelo: " + modelo + "\nPrecio: " + precio + "\nDetalles: " + detalles + "\nUnidades: " + unidades + "\nImagen: " + imagen);
+        // alert("Nombre: " + nombre + "\nMarca: " + marca + "\nModelo: " + modelo + "\nPrecio: " + precio + "\nDetalles: " + detalles + "\nUnidades: " + unidades + "\nImagen: " + imagen);
 
-		send2form(nombre, marca, modelo, precio, unidades, detalles, imagen);
+		send2form(id, nombre, marca, modelo, precio, unidades, detalles, imagen);
     }
 </script>
+
 <?php
-    //header("Content-Type: application/json; charset=utf-8");
+    //header("Content-Type: application/json; charset=utf-8"); 
     $data = array();
 
-    /** SE CREA EL OBJETO DE CONEXION */
-    @$link = new mysqli('localhost', 'root', 'N3PnEpU97_404', 'marketzone');
-    /** NOTA: con @ se suprime el Warning para gestionar el error por medio de código */
 
-    /** comprobar la conexión */
-    if ($link->connect_errno)
-    {
-        die('Falló la conexión: '.$link->connect_error.'<br/>');
-    }
+		/** SE CREA EL OBJETO DE CONEXION */
+		@$link = new mysqli('localhost', 'root', 'N3PnEpU97_404', 'marketzone');
+        /** NOTA: con @ se suprime el Warning para gestionar el error por medio de código */
 
-    /** Crear una tabla que no devuelve un conjunto de resultados */
-    if ( $result = $link->query("SELECT * FROM productos WHERE eliminado = '0'") )
-    {
-        /** Se extraen las tuplas obtenidas de la consulta */
-        $row = $result->fetch_all(MYSQLI_ASSOC);
+		/** comprobar la conexión */
+		if ($link->connect_errno) 
+		{
+			die('Falló la conexión: '.$link->connect_error.'<br/>');
+			//exit();
+		}
 
-        /** Se crea un arreglo con la estructura deseada */
-        foreach($row as $num => $registro) {            // Se recorren tuplas
-            foreach($registro as $key => $value) {      // Se recorren campos
-                $data[$num][$key] = utf8_encode($value);
+		/** Crear una tabla que no devuelve un conjunto de resultados */
+		if ( $result = $link->query("SELECT * FROM productos WHERE eliminado = '0'") ) 
+		{
+            /** Se extraen las tuplas obtenidas de la consulta */
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+
+            /** Se crea un arreglo con la estructura deseada */
+            foreach($row as $num => $registro) {            // Se recorren tuplas
+                foreach($registro as $key => $value) {      // Se recorren campos
+                    $data[$num][$key] = utf8_encode($value);
+                }
             }
-        }
 
-        /** útil para liberar memoria asociada a un resultado con demasiada información */
-        $result->free();
-    }
+			/** útil para liberar memoria asociada a un resultado con demasiada información */
+			$result->free();
+		}
 
-    $link->close();
-?>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Producto</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        img {
-            width: 100%; /* La imagen ocupará todo el ancho de la celda */
-            height: auto; /* Mantiene la proporción */
-            object-fit: cover; /* Para que la imagen se recorte si es necesario sin deformarse */
-        }
-        .col-imagen {
-            width: 150px; /* Ajusta el ancho de la columna imagen */
-        }
-    </style>
-</head>
-<body>
-    <h3>PRODUCTO</h3>
+		$link->close();
 
-    <br/>
+        /** Se devuelven los datos en formato JSON */
+        //echo json_encode($data, JSON_PRETTY_PRINT);
+	?>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Producto</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            img {
+				width: 100%; /* La imagen ocupará todo el ancho de la celda */
+				height: auto; /* Mantiene la proporción */
+				object-fit: cover; /* Para que la imagen se recorte si es necesario sin deformarse */
+			}
+			.col-imagen {
+				width: 150px; /* Ajusta el ancho de la columna imagen */
+			}
+        </style>
+    </head>
+	<body>
+		<h3>PRODUCTO</h3>
 
-    <?php if( isset($row) ) : ?>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Marca</th>
-                    <th scope="col">Modelo</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Unidades</th>
-                    <th scope="col">Detalles</th>
-                    <th scope="col" class="col-imagen">Imagen</th>
-                    <th scope="col">Editar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($row as $value) : ?>
-                <tr>
-                    <th scope="row"><?= $value['id'] ?></th>
-                    <td><?= $value['nombre'] ?></td>
-                    <td><?= $value['marca'] ?></td>
-                    <td><?= $value['modelo'] ?></td>
-                    <td><?= $value['precio'] ?></td>
-                    <td><?= $value['unidades'] ?></td>
-                    <td><?= $value['detalles'] ?></td>
-                    <td class="col-imagen"><img src="<?= $value['imagen'] ?>" alt="<?= $value['nombre'] ?>"></td>
-                    <td>
-						<p class="btn btn-primary" 
-						style="background-color: #c2d8d9; border: 2px solid #c2d8d9;" 
-						onclick="show(event)">Modificar</p>
-					</td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    <?php elseif(!empty($id)) : ?>
+		<br/>
+		
+		<?php if( isset($row) ) : ?>
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Marca</th>
+					<th scope="col">Modelo</th>
+					<th scope="col">Precio</th>
+					<th scope="col">Unidades</th>
+					<th scope="col">Detalles</th>
+					<th scope="col" class="col-imagen">Imagen</th>
+					<th scope="col">Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($row as $value) : ?>
+					<tr>
+						<th scope="row"><?= $value['id'] ?></th>
+						<td><?= $value['nombre'] ?></td>
+						<td><?= $value['marca'] ?></td>
+						<td><?= $value['modelo'] ?></td>
+						<td><?= $value['precio'] ?></td>
+						<td><?= $value['unidades'] ?></td>
+						<td><?= $value['detalles'] ?></td>
+						<td class="col-imagen"><img src="<?= $value['imagen'] ?>" alt="<?= $value['nombre'] ?>"></td>
+						<td>
+							<p class="btn btn-primary" 
+							style="background-color: #c2d8d9; border: 2px solid #c2d8d9;" 
+							onclick="show(event)">Modificar</p>
+						</td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		<?php elseif(!empty($id)) : ?>
 
-        <script>
-            alert('El ID del producto no existe');
-        </script>
+			<script>
+                alert('El ID del producto no existe');
+            </script>
 
-    <?php endif; ?>
+		<?php endif; ?>
 
-	<script>
-    function send2form(nombre, marca, modelo, precio, unidades, detalles, imagen) {
-        var form = document.createElement("form");
+		<script>
+			function send2form(id, nombre, marca, modelo, precio, unidades, detalles, imagen) {
+				var form = document.createElement("form");
 
-        var nombreIn = document.createElement("input");
-        nombreIn.type = 'hidden';
-        nombreIn.name = 'nombre';
-        nombreIn.value = nombre;
-        form.appendChild(nombreIn);
+				var idIn = document.createElement("input");
+				idIn.type = 'hidden';
+				idIn.name = 'id';
+				idIn.value = id;
+				form.appendChild(idIn);
 
-        var marcaIn = document.createElement("input");
-        marcaIn.type = 'hidden';
-        marcaIn.name = 'marca';
-        marcaIn.value = marca;
-        form.appendChild(marcaIn);
+				var nombreIn = document.createElement("input");
+				nombreIn.type = 'hidden';
+				nombreIn.name = 'nombre';
+				nombreIn.value = nombre;
+				form.appendChild(nombreIn);
 
-        var modeloIn = document.createElement("input");
-        modeloIn.type = 'hidden';
-        modeloIn.name = 'modelo';
-        modeloIn.value = modelo;
-        form.appendChild(modeloIn);
+				var marcaIn = document.createElement("input");
+				marcaIn.type = 'hidden';
+				marcaIn.name = 'marca';
+				marcaIn.value = marca;
+				form.appendChild(marcaIn);
 
-        var precioIn = document.createElement("input");
-        precioIn.type = 'hidden';
-        precioIn.name = 'precio';
-        precioIn.value = precio;
-        form.appendChild(precioIn);
+				var modeloIn = document.createElement("input");
+				modeloIn.type = 'hidden';
+				modeloIn.name = 'modelo';
+				modeloIn.value = modelo;
+				form.appendChild(modeloIn);
 
-        var unidadesIn = document.createElement("input");
-        unidadesIn.type = 'hidden';
-        unidadesIn.name = 'unidades';
-        unidadesIn.value = unidades;
-        form.appendChild(unidadesIn);
+				var precioIn = document.createElement("input");
+				precioIn.type = 'hidden';
+				precioIn.name = 'precio';
+				precioIn.value = precio;
+				form.appendChild(precioIn);
 
-        var detallesIn = document.createElement("input");
-        detallesIn.type = 'hidden';
-        detallesIn.name = 'detalles';
-        detallesIn.value = detalles;
-        form.appendChild(detallesIn);
+				var unidadesIn = document.createElement("input");
+				unidadesIn.type = 'hidden';
+				unidadesIn.name = 'unidades';
+				unidadesIn.value = unidades;
+				form.appendChild(unidadesIn);
 
-        var imagenIn = document.createElement("input");
-        imagenIn.type = 'hidden';
-        imagenIn.name = 'imagen';
-        imagenIn.value = imagen;
-        form.appendChild(imagenIn);
+				var detallesIn = document.createElement("input");
+				detallesIn.type = 'hidden';
+				detallesIn.name = 'detalles';
+				detallesIn.value = detalles;
+				form.appendChild(detallesIn);
 
-        form.method = 'POST';
-        form.action = 'http://localhost/tecweb/practicas/p09/formulario_productos_v2.php';
+				var imagenIn = document.createElement("input");
+				imagenIn.type = 'hidden';
+				imagenIn.name = 'imagen';
+				imagenIn.value = imagen;
+				form.appendChild(imagenIn);
 
-        // Añadir el formulario al cuerpo del documento y enviarlo
-        document.body.appendChild(form);
-        form.submit();
-    }
-</script>
+				form.method = 'POST';
+				form.action = 'http://localhost/tecweb/practicas/p09/formulario_productos_v2.php';
 
-</body>
+				// Añadir el formulario al cuerpo del documento y enviarlo
+				document.body.appendChild(form);
+				form.submit();
+			}
+	</script>
+
+	</body>
 </html>

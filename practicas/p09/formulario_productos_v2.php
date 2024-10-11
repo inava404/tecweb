@@ -35,12 +35,13 @@
 
     <h1>Añadir un nuevo producto</h1>
 
-    <form id="formularioProductos" method="post">
+    <form id="formularioProductos" action="http://localhost/tecweb/practicas/p09/update_producto.php" method="post">
 
         <fieldset>
             <legend><b>Información del producto</b></legend>
             <ul>
                 <li>
+                    <input type="hidden" name="id" value="<?= !empty($_POST['id']) ? $_POST['id'] : $_GET['id'] ?>">
                     <label for="form-name">Nombre:</label>
                     <input type="text" name="nombre" id="form-name" value="<?= !empty($_POST['nombre']) ? htmlspecialchars($_POST['nombre']) : htmlspecialchars($_GET['nombre']) ?>">
                 </li><br/>
