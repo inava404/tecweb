@@ -81,6 +81,12 @@ function agregarProducto(e) {
         // SE VERIFICA SI LA RESPUESTA ESTÁ LISTA Y FUE SATISFACTORIA
         if (client.readyState == 4 && client.status == 200) {
             console.log(client.responseText);
+            let response = JSON.parse(client.responseText);
+            if (response.success) {
+                window.alert(response.message);  // Mensaje de éxito
+            } else {
+                window.alert('Error: ' + response.message);  // Mensaje de error
+            }
         }
     };
     client.send(productoJsonString);
