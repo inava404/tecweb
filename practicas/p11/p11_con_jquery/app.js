@@ -115,9 +115,6 @@ $(document).ready(function() {
                     document.getElementById("products").innerHTML = ""; // Limpiar la tabla de productos
                 }
             },
-            error: function() {
-                alert("Hubo un error al realizar la búsqueda.");
-            }
         });
     });
 
