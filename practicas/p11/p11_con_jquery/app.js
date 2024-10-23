@@ -30,7 +30,7 @@ $(document).ready(function() {
                 let productos = JSON.parse(response);
                 if(Object.keys(productos).length > 0) {
                     let template = '';
-    
+
                     productos.forEach(producto => {
                         let descripcion = '';
                         descripcion += '<li>precio: '+producto.precio+'</li>';
@@ -41,7 +41,9 @@ $(document).ready(function() {
                         template += `
                             <tr productId="${producto.id}">
                                 <td>${producto.id}</td>
-                                <td>${producto.nombre}</td>
+                                <td>
+                                    <a href="#" class="product-item">${producto.nombre}</a>
+                                </td>
                                 <td><ul>${descripcion}</ul></td>
                                 <td>
                                     <button class="product-delete btn btn-danger">
@@ -163,7 +165,7 @@ $(document).ready(function() {
                             `;
                     document.getElementById("product-result").className = "card my-4 d-block";
                     document.getElementById("container").innerHTML = template_bar;
-                    
+
                     listadoProductos();
                 }
             });
