@@ -29,6 +29,7 @@ $(document).ready(function() {
             url: './backend/product-list.php',
             type: 'GET',
             success: function(response){
+                console.log(response);
                 let productos = JSON.parse(response);
                 if(Object.keys(productos).length > 0) {
                     let template = '';
@@ -91,7 +92,9 @@ $(document).ready(function() {
                         template += `
                             <tr productId="${producto.id}">
                                 <td>${producto.id}</td>
-                                <td>${producto.nombre}</td>
+                                <td>
+                                    <a href="#" class="product-item">${producto.nombre}</a>
+                                </td>
                                 <td><ul>${descripcion}</ul></td>
                                 <td>
                                     <button class="product-delete btn btn-danger" data-id="${producto.id}">
