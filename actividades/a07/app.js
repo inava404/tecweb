@@ -143,7 +143,7 @@ $(document).ready(function() {
         }
 
         // Validar marca
-        const marcasValidas = ['Nintendo', 'Xbox', 'Playstation'];
+        const marcasValidas = ['Corsair', 'Logitech', 'Razer'];
         if (!finalJSON.marca || finalJSON.marca.length == 0) {
             errores.push('Selecciona una marca.');
         }
@@ -237,6 +237,7 @@ $(document).ready(function() {
 
                 success: function(response){
                     let respuesta = JSON.parse(response);
+                    console.log (response);
                     let template_bar = '';
                     template_bar += `
                                 <li style="list-style: none;">status: ${respuesta.status}</li>
