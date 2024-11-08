@@ -95,8 +95,7 @@
         }
 
         public function getData() {
-            // Convertir array response a JSON antes de retornarlo
-            return json_encode($this->response);
+            return json_encode($this->data, JSON_PRETTY_PRINT);
         }
     }
 ?>
