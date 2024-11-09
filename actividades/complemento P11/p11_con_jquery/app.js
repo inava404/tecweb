@@ -143,7 +143,7 @@ $(document).ready(function() {
         }
 
         // Validar marca
-        const marcasValidas = ['Nintendo', 'Xbox', 'Playstation'];
+        const marcasValidas = ['Logitech', 'Razer', 'Corsair'];
         if (!finalJSON.marca || finalJSON.marca.length == 0) {
             errores.push('Selecciona una marca.');
         }
