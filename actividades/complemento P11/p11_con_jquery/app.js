@@ -1,4 +1,4 @@
-// JSON BASE A MOSTRAR EN FORMULARIO
+/*JSON BASE A MOSTRAR EN FORMULARIO
 var baseJSON = {
     "precio": 0.0,
     "unidades": 1,
@@ -8,14 +8,12 @@ var baseJSON = {
     "imagen": "img/imagen.png"
 };
 
-function init() {
-    /**
+ function init() {
      * Convierte el JSON a string para poder mostrarlo
      * ver: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON
-     */
     var JsonString = JSON.stringify(baseJSON,null,2);
     document.getElementById("description").value = JsonString;
-}
+} */
 
 $(document).ready(function() {
 
