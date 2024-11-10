@@ -160,7 +160,7 @@ $(document).ready(function() {
             correcto.push('Nombre válido')
         }
 
-        const marcasValidas = ['Nintendo', 'Xbox', 'Playstation'];
+        const marcasValidas = ['Logitech', 'HyperX', 'Corsair', 'Razer'];
         if (!finalJSON.marca || finalJSON.marca.length == 0) {
             errores.push('Selecciona una marca.');
         }

@@ -22,7 +22,7 @@
                 $result = $this->conexion->query($sql);
                 if ($result->num_rows == 0) {
                     $this->conexion->set_charset("utf8");
-                    //$sql = "INSERT INTO productos VALUES (null, '{$jsonOBJ->nombre}', '{$jsonOBJ->marca}', '{$jsonOBJ->modelo}', {$jsonOBJ->precio}, '{$jsonOBJ->detalles}', {$jsonOBJ->unidades}, '{$jsonOBJ->imagen}', 0)";
+                    $sql = "INSERT INTO productos VALUES (null, '{$jsonOBJ->nombre}', '{$jsonOBJ->marca}', '{$jsonOBJ->modelo}', {$jsonOBJ->precio}, '{$jsonOBJ->detalles}', {$jsonOBJ->unidades}, '{$jsonOBJ->imagen}', 0)";
                     if($this->conexion->query($sql)){
                         $this->data['status'] =  "success";
                         $this->data['message'] =  "Producto agregado";
