@@ -234,6 +234,10 @@ $(document).ready(function() {
         }
 
         else{
+            
+            let url = edit === false ? './backend/product-add.php' : './backend/product-edit.php';
+            console.log(finalJSON);
+
             $.ajax({
                 url: url,
                 type: 'POST',
