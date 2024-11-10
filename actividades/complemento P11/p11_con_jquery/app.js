@@ -340,7 +340,6 @@ function validarNombre(){
         template_bar += `<li>El nombre debe tener como maximo 100 caracteres</li>`;
         document.getElementById("product-result").className = "card my-4 d-block";
         document.getElementById("container").innerHTML = template_bar;
-
     }
 }
 
