@@ -1,0 +1,40 @@
+<cuenta correo="usuario@example.com">
+    <perfiles>
+        <perfil nombre="Usuario1" idioma="Español" />
+        <perfil nombre="Usuario2" idioma="Inglés" />
+    </perfiles>
+    
+    <contenido>
+        <peliculas>
+            <genero nombre="Acción">
+                <titulo nombre="Película 1" duracion="120" />
+                <titulo nombre="Película 2" duracion="95" />
+                <titulo nombre="Película 3" duracion="110" />
+                <titulo nombre="Película 4" duracion="105" />
+            </genero>
+            
+            <genero nombre="Comedia">
+                <titulo nombre="Película 5" duracion="100" />
+                <titulo nombre="Película 6" duracion="95" />
+                <titulo nombre="Película 7" duracion="90" />
+                <titulo nombre="Película 8" duracion="85" />
+            </genero>
+        </peliculas>
+        
+        <programas>
+            <genero nombre="Documentales">
+                <titulo nombre="Documental 1" duracion="60" />
+                <titulo nombre="Documental 2" duracion="55" />
+                <titulo nombre="Documental 3" duracion="50" />
+                <titulo nombre="Documental 4" duracion="65" />
+            </genero>
+            
+            <genero nombre="Series">
+                <titulo nombre="Serie 1" duracion="45" />
+                <titulo nombre="Serie 2" duracion="50" />
+                <titulo nombre="Serie 3" duracion="40" />
+                <titulo nombre="Serie 4" duracion="42" />
+            </genero>
+        </programas>
+    </contenido>
+</cuenta>
