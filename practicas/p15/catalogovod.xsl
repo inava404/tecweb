@@ -7,51 +7,73 @@
             <head>
                 <title>Catálogo VOD</title>
                 <style>
+                    .top-section {
+                        background-color: #f1f1f1;
+                        witdh: 100%;
+                    }
+
                     body {
-                        margin: 20px;
+                        margin: 0%;
                         font-family: Verdana, Helvetica, sans-serif;
                         font-size: 90%;
-                        background-color: #F4F4F9;
+                        background-color: #1499fd;
                     }
+                    
                     h1 {
-                        color: #333;
+                        color: #1c2c3c;
                         text-align: center;
-                        margin-bottom: 20px;
+                        padding: 10px;
+                        background-color: #54a8e8;
                     }
+                    
                     .logo {
                         text-align: center;
                         margin-bottom: 20px;
+                        padding: 15px;
                     }
+                    
                     table {
                         width: 80%;
                         margin: 20px auto;
                         border-collapse: collapse;
-                        border: 1px solid #ccc;
+                        border: 5px solid #1b2a3b;
                     }
+                    
                     th, td {
-                        border: 1px solid #ccc;
+                        border: 1px solid #1b2a3b;
                         padding: 8px;
-                        text-align: left;
-                    }
-                    th {
-                        background-color: #005825;
-                        color: white;
-                    }
-                    caption {
                         font-size: 1.2em;
-                        margin: 10px 0;
-                        font-weight: bold;
+                        text-align: left;
+                        background-color: #f1f1f1;
                     }
+                    
+                    th {
+                        background-color: #1b2a3b;
+                        color: white;
+                        font-size: 1.4em;
+                    }
+                    
+                    caption {
+                        font-size: 1.6em;
+                        color: #f1f1f1;  
+                        padding: 10px;
+                        margin-top: 15px;
+                        font-weight: bold;
+                        background-color: #1b2a3b;
+                    }
+                    
                 </style>
             </head>
             <body>
                 <!-- Logotipo -->
-                <div class="logo">
-                    <img src="logo.png" alt="Logotipo de la Compañía" width="150" />
-                </div>
+                <div class="top-section">
+                    <div class="logo">
+                        <img src="PrimeLogo.png" alt="Logotipo de netflix" width="30%" height="20%" />
+                    </div>
 
                 <!-- Título -->
-                <h1>Catálogo de Video Bajo Demanda</h1>
+                    <h1>Catálogo de Video Bajo Demanda</h1>
+                </div>
 
                 <!-- Películas -->
                 <table>
