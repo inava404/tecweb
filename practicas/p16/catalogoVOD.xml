@@ -5,11 +5,11 @@
     <cuenta correo="diego.navar@gmail.com">
         <perfiles>
             <perfil usuario="Nava" idioma="Inglés"></perfil>
-            <perfil usuario="Mom" idioma="Español"></perfil>
+            <perfil usuario="Esme" idioma="Español"></perfil>
         </perfiles>
     </cuenta>
     <contenido>
-        <peliculas region="MEX">
+        <peliculas>
             <genero nombre="Terror">
                 <titulo duracion="110 minutos">
                     <nombre>Siniestro</nombre>
