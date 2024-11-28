@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Rutas del archivo XML original y del archivo modificado
-    $xmlFile = 'ruta_del_xml_a_validar.xml'; // Cambia a la ruta del XML original
+    $xmlFile = 'catalogoVOD.xml';
     $outputFile = 'catalogo_vod_actualizado.xml';
 
     // Cargar el XML existente
