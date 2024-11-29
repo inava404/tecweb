@@ -5,10 +5,10 @@
         <perfiles>
             <perfil usuario="Nava" idioma="Inglés"/>
             <perfil usuario="Esme" idioma="Español"/>
-        <perfil usuario="Sosa" idioma="Español"/></perfiles>
+        <perfil usuario="Kal" idioma="Inglés"/></perfiles>
     </cuenta>
     <contenido>
-        <peliculas>
+        <peliculas region="USA">
             <genero nombre="Terror">
                 <titulo duracion="110 minutos">
                     <nombre>Siniestro</nombre>
@@ -37,7 +37,14 @@
                     <nombre>Busqueda Implacable</nombre>
                 </titulo>
             </genero>
-        <genero nombre="Aventura"><titulo duracion="01:20"><nombre>Dora La Exploradora</nombre></titulo><titulo duracion="01:30"><nombre>Diego y Dora</nombre></titulo></genero></peliculas>
+            <genero nombre="Aventura">
+                <titulo duracion="94 minutos">
+                    <nombre>El castillo vagabundo</nombre>
+                </titulo><titulo duracion="96 minutos">
+                    <nombre>Como entrenar a tu dragón</nombre>
+                </titulo>
+            </genero>
+        </peliculas>
 
         <series region="KOR">
             <genero nombre="Dramas">
@@ -68,6 +75,14 @@
                     <nombre>Perdidos en el espacio</nombre>
                 </titulo>
             </genero>
-        <genero nombre="Acción"><titulo duracion="3 temporadas"><nombre>Bluey</nombre></titulo><titulo duracion="5 temporadas"><nombre>Peppa</nombre></titulo></genero></series>
+            <genero nombre="Comedia">
+                <titulo duracion="16 capitulos">
+                    <nombre>Café Minamdang</nombre>
+                </titulo>
+                <titulo duracion="261 capitulos">
+                    <nombre>Regular Show</nombre>
+                </titulo>
+            </genero>
+        </series>
     </contenido>
 </catalogoVOD>

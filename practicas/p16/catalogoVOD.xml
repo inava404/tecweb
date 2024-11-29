@@ -9,7 +9,7 @@
         </perfiles>
     </cuenta>
     <contenido>
-        <peliculas>
+        <peliculas region="USA">
             <genero nombre="Terror">
                 <titulo duracion="110 minutos">
                     <nombre>Siniestro</nombre>

@@ -51,19 +51,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Mostrar un hipervínculo para descargar el archivo actualizado
     echo '<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo VOD Actualizado</title>
-</head>
-<body>
-    <h1>Catálogo VOD Actualizado</h1>
-    <p>El archivo XML ha sido actualizado con éxito.</p>
-    <a href="' . $outputFile . '" download>Descargar XML Actualizado</a>
-</body>
-</html>';
-} else {
-    echo 'Acceso no válido. Por favor, usa el formulario para enviar datos.';
-}
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Catálogo VOD Actualizado</title>
+        </head>
+        <body>
+            <h1>Catálogo VOD Actualizado</h1>
+            <p>El archivo XML ha sido actualizado con éxito.</p>
+            <a href="' . $outputFile . '" download>Descargar XML Actualizado</a>
+        </body>
+        </html>';
+        } else {
+            echo 'Acceso no válido. Por favor, usa el formulario para enviar datos.';
+        }
 ?>
